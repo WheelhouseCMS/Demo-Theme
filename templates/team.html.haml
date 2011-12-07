@@ -1,0 +1,30 @@
+- template.name = "Team Page"
+- title [@page.title, site.name].join(' - ')
+
+#content
+  %h2.title= node.title
+
+  %p.breadcrumbs
+    = breadcrumbs :style => :inline, :separator => "&raquo;"
+    
+  %article
+    = @page.content :rows => 15
+    
+    #team
+      - @page.loop("Team Members").in_groups_of(2, false) do |members|
+        .row
+          - members.each do |member|
+            .member
+              = member.image :width => 92, :height => 92
+              = member.content :rows => 3, :editor => :simple
+    
+  %aside#sidebar
+    %section
+      %h4 Subnavigation
+      %nav= navigation :root => @page.root, :depth => 0
+    
+    - @page.loop("Sidebars") do |sidebar|
+      %section
+        = sidebar.content :rows => 15
+    
+    .bottom

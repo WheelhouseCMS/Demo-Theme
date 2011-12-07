@@ -1,0 +1,39 @@
+- template.name = "Portfolio"
+- title [@page.title, site.name].join(' - ')
+
+#content
+  %h2.title= node.title
+
+  %p.breadcrumbs
+    = breadcrumbs :style => :inline, :separator => "&raquo;"
+    
+  %article.wide
+    #portfolio
+      - @page.loop("Portfolio Items") do |item|
+        .item
+          .image
+            = link_to item.text(:placeholder => "Video URL"), :title => "", :rel => "prettyPhoto[portfolio]" do
+              = item.image(:width => 582)
+              %span.hover
+            
+          .detail= item.content :rows => 5
+          
+= prettyphoto_assets
+
+:javascript
+  $(function() {
+    $('a[rel="prettyPhoto[portfolio]"]').prettyPhoto({
+      slideshow: false,
+  		show_title: false,
+  		overlay_gallery: false,
+  		deeplinking: false,
+  		social_tools: false
+    });
+  });
+  
+  $('.image a').hover(function() {
+    $('> .hover', this).fadeIn(300);
+  }, function () {
+    $('> .hover', this).fadeOut(300);
+  });
+	

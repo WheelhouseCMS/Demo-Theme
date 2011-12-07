@@ -1,0 +1,80 @@
+#content
+  .field
+    margin-bottom: 1.5em
+    
+    ul
+      list-style: none
+      padding-left: 5px
+      margin-top: 1em
+      margin-bottom: 0
+      
+    li
+      padding-bottom: 0.5em
+      display: inline
+      margin-right: 2em
+    
+  fieldset
+    border: none
+    padding: 1em 0
+    margin: 1em 0
+    
+    legend
+      font:
+        size: 150%
+        family: FrancophilSansRegular, Arial, Helvetica, sans-serif
+      color: #343434
+      +webkit-text-gradient(#727171, #020202)
+    
+  label
+    display: block
+    margin-bottom: 5px
+    
+    &.option
+      display: inline
+    
+  .required label:before
+    content: '*'
+    color: #f00
+    margin-right: 4px
+    font-size: 110%
+    vertical-align: -2px
+    
+  input, textarea
+    padding: 5px 6px
+    color: #333
+    font:
+      family: Arial, Helvetica, sans-serif
+      size: 110%
+    border: 1px solid #bcbcbc
+    +border-radius(4px)
+    margin-right: 5px
+  
+  .field
+    input[type="text"]
+      width: 320px
+  
+    textarea
+      width: 400px
+      +min-height(100px)
+  
+  .submit
+    input
+      margin-right: 10px
+      padding: 5px 8px
+      border: none
+      background: #000
+      color: #fff
+      
+      &:disabled
+        background: #999 !important
+      
+      &:hover
+        background: #333
+
+    img.loading
+      vertical-align: -4px
+      border: none
+      padding: 0
+      +box-shadow(none)
+      +border-radius(0)
+      

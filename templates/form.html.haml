@@ -1,0 +1,44 @@
+- template.name = "Default Form"
+- template.resource = Forms::Form
+- title [@form.title, site.name].join(' - ')
+
+#content
+  %h2.title= node.title
+
+  %p.breadcrumbs
+    = breadcrumbs :style => :inline, :separator => "&raquo;"
+  
+  %article
+    = @form.content :rows => 15
+    
+    %hr
+    
+    - if @form.success?
+      = @form.content("Success Message", :rows => 15)
+    - else
+      = @form
+  
+  %aside#sidebar.borderless
+    - @form.loop("Sidebars") do |sidebar|
+      %section
+        = sidebar.content :rows => 10
+
+= stylesheet "uniform.default.css"
+= javascript "jquery.uniform.js"
+= javascript "jquery.form.js"
+
+:javascript
+  $(function() {
+    $("select").uniform();
+    
+    $("form").ajaxForm({
+      target: 'form',
+      replaceTarget: true,
+      beforeSubmit: function(data, $form) {
+        $('.submit input', $form)
+          .attr('disabled', 'disabled')
+          .after($('<img>').attr({ src: '#{image_path('loading.gif')}', alt: 'Loading...' }).addClass('loading'));
+      }
+    });
+  });
+  

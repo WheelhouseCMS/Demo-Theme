@@ -1,0 +1,111 @@
+body.home
+  .pattern
+    height: 399px
+  
+  #content
+    background: none
+    margin-top: -50px
+    +min-height(0)
+    width: 940px
+    padding: 45px
+    position: relative
+    z-index: 20
+  
+  .columns
+    margin: 2em 0
+    margin-left: -55px
+    +clearfix
+    background: image-url("hr_940.png") no-repeat 50px bottom
+    padding-bottom: 2em
+    
+    &:last-of-type
+      background: none
+      padding-bottom: 0
+    
+  .column
+    width: 280px
+    margin-left: 50px
+    +float-left
+    
+#slideshow
+  height: 392px + 39px + 69px
+  position: relative
+  overflow: hidden
+  margin-top: -365px
+  
+  .background
+    background: image-url("backgrounds/slideshow.png") no-repeat
+    width: 952px
+    height: 392px
+    padding: 39px 144px 69px
+    position: absolute
+    left: 50%
+    margin-left: -620px
+      
+  .container
+    position: relative
+    overflow: hidden
+  
+  ul
+    width: 100%
+    list-style: none
+    margin: 0
+    padding: 0
+    line-height: 1
+    
+  li
+    margin: 0
+    height: 392px
+    +float-left
+    width: 10%
+    background-color: #fff
+    border-left: 1px solid #fff
+    position: relative
+    overflow: hidden
+  
+  .title
+    color: #fff
+    background: #000
+    +opacity(0.7)
+    padding: 10px
+    position: absolute
+    top: 50px
+    width: 100%
+    
+    h3
+      margin: 0
+      font:
+        family: FrancophilSansRegular, Arial, Helvetica, sans-serif
+        weight: normal
+        size: 160%
+      +webkit-text-gradient(#eee, #cbcbcb)
+  
+  .gradient
+    background: #000
+    +opacity(0.8)
+    bottom: 0
+    left: 0
+    height: 100px
+    position: absolute
+    
+  .detail
+    position: absolute
+    bottom: 0
+    left: 0
+    display: none
+    color: #fff
+    
+    h3
+      margin: 20px 0 0 20px
+      font:
+        family: FrancophilSansRegular, Arial, Helvetica, sans-serif
+        weight: normal
+        size: 160%
+      +webkit-text-gradient(#eee, #cbcbcb)
+    
+    p
+      height: 3.2em
+      line-height: 1.5
+      overflow: hidden
+      margin: 5px 20px 20px
+      font-size: 120%

@@ -1,0 +1,38 @@
+#content
+  .post
+    margin-bottom: 3em
+    padding-bottom: 2.5em
+    background: image-url("hr_610.png") no-repeat center bottom
+  
+  ul.meta
+    font-size: 95%
+    margin-top: 10px
+    padding: 0
+    color: #818181
+    list-style: none
+    +clearfix
+    
+    a
+      color: #818181
+      +hover-link
+      
+      &:hover
+        color: #666
+    
+    li
+      min-height: 16px
+      line-height: 16px
+      padding-left: 24px
+      padding-bottom: 0
+      margin-right: 24px
+      +float-left
+      
+      &.date
+        background: image-url("icons/date.png") no-repeat left
+        
+      &.author
+        background: image-url("icons/author.png") no-repeat left
+    
+      &.tags
+        background: image-url("icons/tags.png") no-repeat left
+        

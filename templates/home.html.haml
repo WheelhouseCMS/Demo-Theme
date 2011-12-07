@@ -1,0 +1,35 @@
+- template.name = "Home Page"
+- title @page.title
+- @body_class = "home"
+
+#slideshow
+  .background
+    .container
+      %ul
+        - @page.loop("Slideshow") do |slide|
+          %li{ :style => "background-image: url('#{slide.image.url("422x392#")}');" }
+            .title
+              %h3= slide.text :placeholder => "Slide Title"
+            
+            .detail
+              = slide.content :rows => 3, :editor => :simple
+
+#content
+  - @page.loop("Columns").in_groups_of(3, false) do |columns|
+    .columns
+      - columns.each do |column|
+        .column
+          = column.content :rows => 10, :editor => :simple
+
+= javascript "jquery.easing.js", "jquery.elegantAccordion.js"
+
+:javascript
+  $(function() {
+    $('#slideshow ul').eAccordion({
+      easing: 'swing',
+  		delay: 3000,
+  		animationTime: 600,
+  		expandedWidth: '422px'
+    });
+  });
+  
