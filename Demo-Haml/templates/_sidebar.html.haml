@@ -1,0 +1,11 @@
+%aside#sidebar
+  - if @page.root.children.any?
+    %section
+      %h4 Subnavigation
+      %nav= navigation :root => @page.root, :depth => 0
+  
+  - @page.loop("Sidebars") do |sidebar|
+    %section
+      = sidebar.content :rows => 15
+  
+  .bottom

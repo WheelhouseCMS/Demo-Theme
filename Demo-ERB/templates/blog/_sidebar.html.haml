@@ -1,0 +1,18 @@
+%aside#sidebar
+  %section
+    %h4 Categories
+    %ul
+      - @blog.categories.each do |category|
+        %li= link_to category, @blog.category_path(category)
+  
+  %section
+    %h4 Archives
+    %ul
+      - @blog.archives.each do |date, path, count|
+        %li= link_to "#{date.strftime("%B %Y")} (#{count})", path
+  
+  - @blog.loop("Sidebars")  do |sidebar|
+    %section
+      = sidebar.content :rows => 15
+  
+  .bottom

@@ -1,0 +1,14 @@
+<% template.name = "Full-width" %>
+<% title [@page.title, site.name].join(' - ') %>
+
+<div id="content">
+  <h2 class="title"><%= node.title %></h2>
+
+  <p class="breadcrumbs">
+    <%= breadcrumbs :style => :inline, :separator => "&raquo;" %>
+  </p>
+    
+  <article class="wide">
+    <%= @page.content %>
+  </article>
+</div>

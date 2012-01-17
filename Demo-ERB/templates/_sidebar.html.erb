@@ -1,0 +1,18 @@
+<aside id="sidebar">
+  <% if @page.root.children.any? %>
+    <section>
+      <h4>Subnavigation</h4>
+      <nav>
+        <%= navigation :root => @page.root, :depth => 0 %>
+      </nav>
+    </section>
+  <% end %>
+  
+  <% @page.loop("Sidebars") do |sidebar| %>
+    <section>
+      <%= sidebar.content :rows => 15 %>
+    </section>
+  <% end %>
+  
+  <div class="bottom" />
+</aside>

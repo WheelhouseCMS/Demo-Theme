@@ -1,0 +1,49 @@
+<% template.name = "Portfolio" %>
+<% title [@page.title, site.name].join(' - ') %>
+
+<div id="content">
+  <h2 class="title"><%= node.title %></h2>
+  
+  <p class="breadcrumbs">
+    <%= breadcrumbs :style => :inline, :separator => "&raquo;" %>
+  </p>
+    
+  <article class="wide">
+    <div id="portfolio">
+      <% @page.loop("Portfolio Items") do |item| %>
+        <div class="item">
+          <div class="image">
+            <%= link_to item.text(:placeholder => "Video URL"), :title => "", :rel => "prettyPhoto[portfolio]" do %>
+              <%= item.image(:width => 582) %>
+              <span class="hover" />
+            <% end %>
+          </div>
+            
+          <div class="detail">
+            <%= item.content :rows => 5 %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </article>
+</div>
+          
+<%= prettyphoto_assets %>
+
+<script type="text/javascript">
+  $(function() {
+    $('a[rel="prettyPhoto[portfolio]"]').prettyPhoto({
+      slideshow: false,
+  		show_title: false,
+  		overlay_gallery: false,
+  		deeplinking: false,
+  		social_tools: false
+    });
+  });
+  
+  $('.image a').hover(function() {
+    $('> .hover', this).fadeIn(300);
+  }, function () {
+    $('> .hover', this).fadeOut(300);
+  });
+</script>

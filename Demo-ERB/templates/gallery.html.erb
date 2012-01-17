@@ -1,0 +1,31 @@
+<% template.name = "Gallery" %>
+<% title [@page.title, site.name].join(' - ') %>
+
+<div id="content">
+  <h2 class="title"><%= node.title %></h2>
+
+  <p class="breadcrumbs">
+    <%= breadcrumbs :style => :inline, :separator => "&raquo;" %>
+  </p>
+    
+  <article class="wide">
+    <ul id="gallery">
+      <% @page.loop("Gallery Images") do |i| %>
+        <li><%= link_to i.image(:width => 214, :height => 194), i.image.url, :rel => "prettyPhoto[gallery]", :title => i.image.caption %></li>
+      <% end %>
+    </ul>
+  </article>
+</div>
+
+<%= prettyphoto_assets %>
+
+<script type="text/javascript">
+  $(function() {
+    $("#gallery a").prettyPhoto({
+  		show_title: false,
+  		overlay_gallery: true,
+  		deeplinking: false,
+  		social_tools: false
+    });
+  });
+</script>

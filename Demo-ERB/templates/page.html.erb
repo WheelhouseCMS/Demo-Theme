@@ -1,0 +1,16 @@
+<% template.name = "Default Page" %>
+<% title [@page.title, site.name].join(' - ') %>
+
+<div id="content">
+  <h2 class="title"><%= node.title %></h2>
+  
+  <p class="breadcrumbs">
+    <%= breadcrumbs :style => :inline, :separator => "&raquo;" %>
+  </p>
+
+  <article>
+    <%= @page.content %>
+  </article>
+
+  <%= render "sidebar" %>
+</div>

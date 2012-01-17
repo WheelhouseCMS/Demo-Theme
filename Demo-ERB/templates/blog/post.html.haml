@@ -1,0 +1,15 @@
+- template.resource = Blog::Post
+- title [@post.title, @blog.title, site.name].join(' - ')
+- breadcrumb @post.title
+
+#content
+  %h2.title= @blog.title
+
+  %p.breadcrumbs
+    = breadcrumbs :style => :inline, :separator => "&raquo;"
+    
+  %article
+    = render :partial => "post", :object => @post
+    
+  = render "sidebar"
+  

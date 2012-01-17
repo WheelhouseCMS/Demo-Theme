@@ -1,0 +1,48 @@
+<% template.name = "Home Page" %>
+<% title @page.title %>
+<% @body_class = "home" %>
+
+<div id="slideshow">
+  <div class="background">
+    <div class="container">
+      <ul>
+        <% @page.loop("Slideshow") do |slide| %>
+          <li style="background-image: url('<%= slide.image.url("422x392#") %>');">
+            <div class="title">
+              <h3><%= slide.text :placeholder => "Slide Title" %></h3>
+            </div>
+            
+            <div class="detail">
+              <%= slide.content :rows => 3, :editor => :simple %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="content">
+  <% @page.loop("Columns").in_groups_of(3, false) do |columns| %>
+    <div class="columns">
+      <% columns.each do |column| %>
+        <div class="column">
+          <%= column.content :rows => 10, :editor => :simple %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<%= javascript "jquery.easing.js", "jquery.elegantAccordion.js" %>
+
+<script type="text/javascript">
+  $(function() {
+    $('#slideshow ul').eAccordion({
+      easing: 'swing',
+  		delay: 3000,
+  		animationTime: 600,
+  		expandedWidth: '422px'
+    });
+  });
+</script>

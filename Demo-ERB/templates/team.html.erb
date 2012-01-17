@@ -1,0 +1,29 @@
+<% template.name = "Team Page" %>
+<% title [@page.title, site.name].join(' - ') %>
+
+<div id="content">
+  <h2 class="title"><%= node.title %></h2>
+  
+  <p class="breadcrumbs">
+    <%= breadcrumbs :style => :inline, :separator => "&raquo;" %>
+  </p>
+    
+  <article>
+    <%= @page.content :rows => 15 %>
+    
+    <div id="team">
+      <% @page.loop("Team Members").in_groups_of(2, false) do |members| %>
+        <div class="row">
+          <% members.each do |member| %>
+            <div class="member">
+              <%= member.image :width => 92, :height => 92 %>
+              <%= member.content :rows => 3, :editor => :simple %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </article>
+    
+  <%= render "sidebar" %>
+</div>
