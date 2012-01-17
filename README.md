@@ -2,13 +2,13 @@ Wheelhouse CMS Demo Theme
 =========================
 
 This theme powers the [Wheelhouse CMS](https://www.wheelhousecms.com) demo site located at http://demo.wheelhousecms.com.
-It is based on the [Inspiration theme by MixerTheme](http://themeforest.net/item/inspiration-premium-xhtmlcss-template/539797) (available on [ThemeForest](http://themeforest.net/)).
+It is based on the [Inspiration theme by MixerTheme](http://themeforest.net/item/inspiration-premium-xhtmlcss-template/539797) (available on [ThemeForest](http://themeforest.net/)). Both ERB and Haml versions are included.
 
 
 Installation
 ------------
 
-Download the theme files into a new folder (e.g. `demo`) inside your Wheelhouse themes folder.
+Download the themes files into your Wheelhouse themes folder.
 Also ensure that you have installed the required plugins (see below).
 
 
