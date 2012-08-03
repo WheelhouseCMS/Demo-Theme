@@ -1,0 +1,64 @@
+<% layout.name = "Default" %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <title><%= title %></title>
+    
+    <%= stylesheet "screen" %>
+    <%= javascript "jquery", "site" %>
+    
+    <!--[if IE]><%= javascript "html5" %><![endif]-->
+    
+    <%= favicon %>
+    <%= meta_tags %>
+    
+    <meta name="viewport" content="width=1100" />
+  </head>
+  
+  <body class="<%= @body_class %>">
+    <div id="page">
+      <header id="header">
+        <div class="center">
+          <div class="logo">
+            <%= snippet "Logo" %>
+            <span></span>
+          </div>
+          
+          <nav>
+            <%= navigation :depth => 0 %>
+          </nav>
+        </div>
+      </header>
+      
+      <div class="pattern">
+        <div class="shadow-top"></div>
+        <div class="shadow-bottom"></div>
+      </div>
+      
+      <%= yield %>
+      
+      <div class="push"></div>
+    </div>
+    
+    <footer id="footer">
+      <div class="center">
+        <div class="copyright">
+          <p>Copyright &copy; 2011 Sam Pohlenz t/as Wheelhouse Labs. All rights reserved.</p>
+          
+          <p class="credits">
+            Theme: <%= link_to "Inspiration", "http://themeforest.net/item/inspiration-premium-xhtmlcss-template/539797", :target => "_blank" %> by <%= link_to "CSSMixer", "http://cssmixer.com", :target => "_blank" %> - <%= link_to "(Download from GitHub)", "https://github.com/WheelhouseCMS/Demo-Theme" %>
+          </p>
+        </div>
+        
+        <div class="social-media">
+          <%= snippet "Social Media" %>
+        </div>
+      </div>
+    </footer>
+    
+    <%= google_analytics %>
+  </body>
+</html>
