@@ -1,0 +1,19 @@
+<div class="post">
+  <h3><%= link_to_unless_current post.title, post %></h3>
+
+  <ul class="meta">
+    <li class="date"><%= post.published_at.to_date.to_s(:long_ordinal) %></li>
+    
+    <% if post.author %>
+      <li class="author"><%= post.author.name %></li>
+    <% end %>
+    
+    <% if post.tags.any? %>
+      <li class="tags"><%= blog_post_tag_links(post) %></li>
+    <% end %>
+  </ul>
+
+  <div class="content">
+    <%= post.content %>
+  </div>
+</div>

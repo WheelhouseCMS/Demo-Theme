@@ -1,0 +1,27 @@
+<aside id="sidebar">
+  <section>
+    <h4>Categories</h4>
+    <ul>
+      <% @blog.categories.each do |category| %>
+        <li><%= link_to category, @blog.category_path(category) %></li>
+      <% end %>
+    </ul>
+  </section>
+  
+  <section>
+    <h4>Archives</h4>
+    <ul>
+      <% @blog.archives.each do |date, path, count| %>
+        <li><%= link_to "#{date.strftime("%B %Y")} (#{count})", path %></li>
+      <% end %>
+    </ul>
+  </section>
+  
+  <% @blog.loop("Sidebars") do |sidebar| %>
+    <section>
+      <%= sidebar.content :rows => 15 %>
+    </section>
+  <% end %>
+  
+  <div class="bottom"></div>
+</aside>

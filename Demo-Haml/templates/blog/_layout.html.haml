@@ -1,0 +1,12 @@
+- title [title, site.name].join(' - ')
+
+#content
+  %h2.title= @blog.title
+
+  %p.breadcrumbs
+    = breadcrumbs :style => :inline, :separator => "&raquo;"
+    
+  %article
+    = yield
+    
+  = render "sidebar"

@@ -1,5 +1,5 @@
 .post
-  %h3= link_to_unless post == @post, post.title, post
+  %h3= link_to_unless_current post.title, post
   
   %ul.meta 
     %li.date= post.published_at.to_date.to_s(:long_ordinal)

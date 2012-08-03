@@ -11,7 +11,7 @@
       - @blog.archives.each do |date, path, count|
         %li= link_to "#{date.strftime("%B %Y")} (#{count})", path
   
-  - @blog.loop("Sidebars")  do |sidebar|
+  - @blog.loop("Sidebars") do |sidebar|
     %section
       = sidebar.content :rows => 15
   
